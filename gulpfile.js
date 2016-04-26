@@ -26,10 +26,10 @@ gulp.task('bower', function () {
   return bower().pipe(gulp.dest(config.bowerDir));
 });
 
-// Font Awesome
-/*gulp.task('icons', function () {
-  return gulp.src(config.bowerDir + '/fontawesome/fonts/**.*') .pipe(gulp.dest(config.dstPath + '/fonts'));
-});*/
+// Fonts
+gulp.task('fonts', function () {
+  return gulp.src(config.bowerDir + '/materialize/fonts/**/*.*') .pipe(gulp.dest(config.dstPath + '/fonts'));
+});
 
 // SASS compilazione manuale
 gulp.task('sass', function () {
@@ -61,7 +61,7 @@ gulp.task('sass:watch', function () {
 // Javascript, concatena, debug e minimizza
 gulp.task('scripts', function () {
   gulp.src([
-    //config.bowerDir + '/bootstrap-sass-official/assets/javascripts/bootstrap.js',
+    config.bowerDir + '/materialize/dist/js/materialize.js',
     config.srcPath + '/js/*.js'
   ])
   .pipe(concat('site.js'))
