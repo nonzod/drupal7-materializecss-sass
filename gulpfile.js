@@ -53,18 +53,25 @@ gulp.task('combineMq', function () {
           .pipe(gulp.dest(config.dstPath + '/css'));
 });
 
-// SASS watch, compilazione automatica
-gulp.task('sass:watch', function () {
+// JS & SASS watch, compilazione automatica
+gulp.task('watch', function () {
   gulp.watch(config.srcPath + '/scss/**/*.scss', ['sass']);
+  gulp.watch(config.srcPath + '/js/**/*.js', ['scripts']);
 });
 
-// Javascript, concatena, debug e minimizza
+// Javascript, concatena e copia in public i js
 gulp.task('scripts', function () {
   gulp.src([
     config.bowerDir + '/materialize/dist/js/materialize.js',
     config.srcPath + '/js/*.js'
   ])
   .pipe(concat('site.js'))
+  .pipe(gulp.dest(config.dstPath + '/js'));
+});
+
+// Javascript, minimizza e ottimizza per produzione
+gulp.task('combineJs', function () {
+  gulp.src(config.dstPath + '/js/site.js')
   .pipe(stripDebug())
   .pipe(uglify())
   .pipe(gulp.dest(config.dstPath + '/js'));
@@ -72,4 +79,4 @@ gulp.task('scripts', function () {
 
 // Operazioni combinate
 gulp.task('default', ['bower', 'fonts']);
-gulp.task('deploy', ['bower', 'fonts','sass', 'combineMq', 'scripts']);
+gulp.task('deploy', ['bower', 'fonts', 'sass', 'combineMq', 'scripts', 'combineJs']);
