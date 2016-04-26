@@ -26,14 +26,15 @@ gulp default
 * *bower* : Installa le dipendenze Bower
 * *fonts* : Copia i fonts in public/
 * *sass* : Compila i file SCSS
-* *combineMq* : Ottimizzazioni al file css compilato e minifica
-* *sass:watch* : Rimane in esecuzione e compila i file SCSS ad ogni modifica
+* *watch* : Rimane in esecuzione, compila i file SCSS e combina i file JS ad ogni modifica
 * *scripts* : Combina i files javascript
+* *combineMq* : Ottimizzazioni al file css compilato e minifica
+* *combineJs* : Ottimizzazioni al file js minifica
 
 Task combinati
 
 * *default*: esegue "bower" e "fonts", utile per il setup iniziale
-* *deploy*: esegue "bower", "fonts", "sass", "combineMq" e "script", prepara tutto per il deploy
+* *deploy*: esegue "bower", "fonts", "sass", "combineMq", "script" e "combineJs", prepara tutto per il deploy
 
 
 ## SASS:Watch error (ENOSPC)
