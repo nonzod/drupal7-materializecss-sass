@@ -71,5 +71,5 @@ gulp.task('scripts', function () {
 });
 
 // Operazioni combinate
-gulp.task('default', ['bower']);
-gulp.task('deploy', ['bower', 'sass', 'combineMq', 'scripts']);
+gulp.task('default', ['bower', 'fonts']);
+gulp.task('deploy', ['bower', 'fonts','sass', 'combineMq', 'scripts']);
